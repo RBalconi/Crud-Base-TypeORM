@@ -2,15 +2,14 @@
   <img src="https://user-images.githubusercontent.com/18688446/156849342-809790ed-df9d-4497-b94e-9cff0540c7a0.png" alt="Ecoleta Logo" /> 
   <br/> 
   <h1>API Crud-Base</h1>
-  <h3>Base de CRUD feito em Java com Springboot</h3>
+  <h3>Base de CRUD feito em NodeJS com TypeORM</h3>
 </div>
 
 <p align="center">
-    <img src="https://img.shields.io/static/v1?label=Java&message=11&color=DC143C&style=flat-square&logo=Java" alt="Java" />
-    <img src="https://img.shields.io/static/v1?label=SpringBoot&message=2.6.4&color=7CFC00&style=flat-square&logo=SpringBoot" alt="SpringBoot" />
-    <img src="https://img.shields.io/static/v1?label=Apache Maven&message=3.6.3&color=DC143C&style=flat-square&logo=Apache Maven" alt="Apache Maven" />
-    <img src="https://img.shields.io/static/v1?label=PostgreSQL&message=14.2&color=1E90FF&style=flat-square&logo=PostgreSQL&logoColor=1E90FF" alt="PostgreSQL" />
-
+    <img src="https://img.shields.io/static/v1?label=Type&message=Script&color=3178C6&style=flat-square&logo=TypeScript" alt="TypeScript" />
+    <img src="https://img.shields.io/static/v1?label=Node&message=JS&color=7CFC00&style=flat-square&logo=Node.js" alt="NodeJS" />
+    <img src="https://img.shields.io/static/v1?label=Type&message=ORM&color=FF7200&style=flat-square&logo=TypeORM" alt="TypeORM" />
+    <img src="https://img.shields.io/static/v1?label=Express&message=JS&color=888888&style=flat-square&logo=Express" alt="Express" />
 </p>
 
 ## Como usar
@@ -74,7 +73,7 @@ Response:
 #### Person
 
 - Banco de dados:
-  ![image](https://user-images.githubusercontent.com/18688446/156852703-036646a8-2530-4d0e-9071-0fbfd3b5eabd.png)
+![image](https://user-images.githubusercontent.com/18688446/156944253-7321a608-7465-4aa9-9cd6-55d21fe34657.png)
 - JSON getAll:
 
 ```json
@@ -94,8 +93,8 @@ Response:
 
 #### Course
 
-- Banco de dados:
-  ![image](https://user-images.githubusercontent.com/18688446/156853320-f7b2b54c-ca04-4893-b994-216038796667.png)
+- Banco de dados: <br/>
+![image](https://user-images.githubusercontent.com/18688446/156944280-6c30069f-4a98-46b1-9fb2-fb2f1842f112.png)
 - JSON getAll:
 
 ```json
@@ -107,13 +106,13 @@ Response:
     "name": "Teste",
     "situation": "ACTIVE"
   }
-`
+]
 ```
 
 #### Students
 
 - Banco de dados:
-  ![image](https://user-images.githubusercontent.com/18688446/156853599-d8637363-063f-4125-aa0d-f79b08abc435.png)
+![image](https://user-images.githubusercontent.com/18688446/156944302-6ef3bed8-33a6-4508-99bb-9ef0661958d3.png)
 - JSON getAll:
 
 ```json
@@ -171,10 +170,10 @@ Response:
        └───/{id}
 ```
 
-#### Students
+#### Student
 
 ```
-/students
+/student
 ├───/getAll
 ├───/create
 ├───/update
