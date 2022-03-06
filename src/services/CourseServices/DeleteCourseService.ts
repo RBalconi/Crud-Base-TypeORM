@@ -1,9 +1,9 @@
-import { getRepository } from "typeorm";
-import { Course } from "../../entities/Course";
+import { getCustomRepository } from "typeorm";
+import { CourseRepository } from "../../repositories/CourseRepository";
 
 export class DeleteCourseService {
   async execute(id: string) {
-    const repo = getRepository(Course);
+    const repo = getCustomRepository(CourseRepository);
 
     if (!(await repo.findOne(id))) {
       return new Error("Course not found");

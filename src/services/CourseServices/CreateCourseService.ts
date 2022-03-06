@@ -1,21 +1,13 @@
-import { getRepository } from "typeorm";
+import { getCustomRepository } from "typeorm";
 import { Course } from "../../entities/Course";
-
-type CourseRequest = {
-  name: string;
-  situation: string;
-};
+import { CourseRepository } from "../../repositories/CourseRepository";
 
 export class CreateCourseService {
-  async execute({ name, situation }: CourseRequest): Promise<Course | Error> {
-    const repo = getRepository(Course);
+  async execute(obj: Course): Promise<Course | Error> {
+    const repo = getCustomRepository(CourseRepository);
 
     try {
-      const Course = repo.create({
-        name,
-        situation,
-      });
-      return await repo.save(Course);
+      return await repo.save(obj);
     } catch (error) {
       return new Error(error);
     }

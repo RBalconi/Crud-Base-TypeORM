@@ -3,14 +3,11 @@ import { CreateCourseService } from "../../services/CourseServices/CreateCourseS
 
 export class CreateCourseController {
   async handle(req: Request, res: Response) {
-    const { name, situation } = req.body;
+    const obj = req.body;
 
     const service = new CreateCourseService();
 
-    const result = await service.execute({
-      name,
-      situation,
-    });
+    const result = await service.execute(obj);
 
     if (result instanceof Error) {
       return res.status(400).json({ error: result.message });

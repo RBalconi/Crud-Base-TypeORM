@@ -3,35 +3,30 @@ import {
   Entity,
   JoinColumn,
   OneToOne,
-  PrimaryColumn,
+  PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from "typeorm";
-import { v4 as uuid } from "uuid";
 import { Course } from "./Course";
 import { Person } from "./Person";
 
 @Entity("students")
 export class Student {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn("uuid")
   public id: string;
 
   @CreateDateColumn({ name: "created_at" })
-  public created_at: Date;
+  public createdAt: Date;
 
   @UpdateDateColumn({ name: "updated_at" })
-  public updated_at: Date;
+  public updatedAt: Date;
 
-  @OneToOne(() => Course)
+  @OneToOne(() => Course, { eager: true, cascade: true })
   @JoinColumn({ name: "course_id" })
   public course: Course;
 
-  @OneToOne(() => Person)
+  @OneToOne(() => Person, { eager: true, cascade: true })
   @JoinColumn({ name: "person_id" })
   public person: Person;
 
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
+  constructor() {}
 }

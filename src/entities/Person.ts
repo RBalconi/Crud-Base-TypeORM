@@ -1,16 +1,21 @@
-import { Column, Entity, PrimaryColumn } from "typeorm";
-import { v4 as uuid } from "uuid";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from "typeorm";
 
 @Entity("persons")
 export class Person {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn("uuid")
   public id: string;
 
-  @Column()
-  public created_at: Date;
+  @CreateDateColumn({ name: "created_at" })
+  public createdAt: Date;
 
-  @Column()
-  public updated_at: Date;
+  @UpdateDateColumn({ name: "updated_at" })
+  public updatedAt: Date;
 
   @Column()
   public name: string;
@@ -27,9 +32,5 @@ export class Person {
   @Column()
   public email: string;
 
-  constructor() {
-    if (!this.id) {
-      this.id = uuid();
-    }
-  }
+  constructor() {}
 }

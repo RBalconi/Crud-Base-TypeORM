@@ -1,30 +1,20 @@
-import { getRepository } from "typeorm";
+import { getCustomRepository } from "typeorm";
 import { Course } from "../../entities/Course";
-
-type CourseRequest = {
-  id: string;
-  name: string;
-  situation: string;
-};
+import { CourseRepository } from "../../repositories/CourseRepository";
 
 export class UpdateCourseService {
-  async execute({
-    id,
-    name,
-    situation,
-  }: CourseRequest): Promise<Course | Error> {
-    const repo = getRepository(Course);
+  async execute(id: string, obj: Course): Promise<Course | Error> {
+    const repo = getCustomRepository(CourseRepository);
 
     try {
-      const course = await repo.findOne(id);
-      if (!course) {
-        return new Error("course not found");
+      const Course = await repo.findOne(id);
+      if (!Course) {
+        return new Error("Course not found");
       }
 
-      course.name = name ? name : course.name;
-      course.situation = situation ? situation : course.situation;
+      repo.merge(Course, obj);
 
-      return await repo.save(course);
+      return await repo.save(Course);
     } catch (error) {
       return new Error(error);
     }

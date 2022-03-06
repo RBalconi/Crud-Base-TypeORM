@@ -4,11 +4,11 @@ import { DeleteCourseController } from "../controllers/CourseControllers/DeleteC
 import { GetAllCourseController } from "../controllers/CourseControllers/GetAllCourseController";
 import { UpdateCourseController } from "../controllers/CourseControllers/UpdateCourseController";
 
-const routes = Router();
+const coursesRoutes = Router();
 
-routes.post("/course/create", new CreateCourseController().handle);
-routes.get("/course/getAll", new GetAllCourseController().handle);
-routes.delete("/course/delete/:id", new DeleteCourseController().handle);
-routes.put("/course/update/:id", new UpdateCourseController().handle);
+coursesRoutes.post("/create", new CreateCourseController().handle);
+coursesRoutes.get("/getAll", new GetAllCourseController().handle);
+coursesRoutes.delete("/delete/:id", new DeleteCourseController().handle);
+coursesRoutes.put("/update/:id", new UpdateCourseController().handle);
 
-export { routes };
+export default coursesRoutes;
