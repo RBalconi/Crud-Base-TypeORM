@@ -30,7 +30,7 @@
   $ yarn typeorm migrations:run
   ```
 
-- Entao execute a API pela IDE:
+- Entao execute a API:
   ```
   $ yarn dev
   ```
